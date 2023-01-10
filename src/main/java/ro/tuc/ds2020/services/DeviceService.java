@@ -2,10 +2,8 @@ package ro.tuc.ds2020.services;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.jni.Local;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import ro.tuc.ds2020.controllers.handlers.exceptions.model.ResourceNotFoundException;
@@ -156,6 +154,7 @@ public class DeviceService {
         LocalDate secondDate = time.toLocalDate();
         return firstDate.equals(secondDate) && currentTime.getHour() == time.getHour() && currentTime.getMinute() == time.getMinute();
     }
+
     public void checkHourlyConsumption(MeasurementDTO measurement) {
         LocalDateTime currentTime = measurement.getTime();
         Long id = measurement.getDeviceId();
